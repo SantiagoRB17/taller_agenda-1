@@ -3,7 +3,6 @@ package co.edu.uniquindio.poo;
 import java.util.Collection;
 import java.util.LinkedList;
 
-import javax.swing.JOptionPane;
 /**Clase que representa los grupos de la agenda */
 public class Grupo {
     public String Nombre;

@@ -2,19 +2,16 @@ package co.edu.uniquindio.poo;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.format.DateTimeParseException;
-import java.sql.Date;
-import java.sql.Time;
+
 import java.util.Collection;
 import java.util.LinkedList;
 
-import javax.swing.JOptionPane;
 
 /** Clase que representa las reuniones de la agenda */
 public class Reunion {
     public String Descripcion;
     public LocalDate Fecha;
-    public Time Hora;
+    public LocalTime Hora;
     public Collection<Contacto> asistentes;
 
     /**
@@ -24,7 +21,7 @@ public class Reunion {
      * @param Fecha
      * @param Hora
      */
-    public Reunion(String Descripcion, LocalDate Fecha, Time Hora) {
+    public Reunion(String Descripcion, LocalDate Fecha, LocalTime Hora) {
         this.Descripcion = Descripcion;
         this.Fecha = Fecha;
         this.Hora = Hora;
@@ -39,7 +36,7 @@ public class Reunion {
         return Fecha;
     }
 
-    public Time getHora() {
+    public LocalTime getHora() {
         return Hora;
     }
 
@@ -51,7 +48,7 @@ public class Reunion {
         Fecha = fecha;
     }
 
-    public void setHora(Time hora) {
+    public void setHora(LocalTime hora) {
         Hora = hora;
     }
 
@@ -65,8 +62,8 @@ public class Reunion {
      */
     public boolean verificarContactoAsis(String nombre, String Telefono) {
         boolean centinela = false;
-        for (Contacto contacto : asistentes) {
-            if (contacto.getNombre().equals(nombre) && contacto.getTelefono().equals(Telefono)) {
+        for (Contacto contactos : asistentes) {
+            if (contactos.getNombre().equals(nombre) && contactos.getTelefono().equals(Telefono)) {
                 centinela = true;
             }
         }
@@ -78,9 +75,9 @@ public class Reunion {
      * 
      * @param contacto objeto contacto
      */
-    public void asignarContactoAsis(Contacto contacto) {
-        if (!verificarContactoAsis(contacto.getNombre(), contacto.getTelefono())) {
-            asistentes.add(contacto);
+    public void asignarContactoAsis(Contacto contactos) {
+        if (!verificarContactoAsis(contactos.getNombre(), contactos.getTelefono())) {
+            asistentes.add(contactos);
         }
     }
 
